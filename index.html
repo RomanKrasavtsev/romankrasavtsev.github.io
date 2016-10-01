@@ -4,9 +4,86 @@
   <meta charset="UTF-8">
   <title>Roman Krasavtsev - Software Engineer, Full Stack</title>
   <script src="https://d3js.org/d3.v4.min.js"></script>
+  <style>
+    body {
+      background: #f2f3f2;
+    }
+    .title {
+      font-family: 'Helvetica Neue', Helvetica;
+      font-weight: 300;
+      font-size: 30px;
+      text-anchor: middle;
+    }
+  </style>
 </head>
 <body>
-  <h1>Roman Krasavtsev - Software Engineer, Full Stack</h1>
-aws, ruby, ruby on rails, rhel, c, sql, postgresql, javascipt, jenkins, docker, redis, git, d3, css, html, jquery, angularjs
+  <script>
+    var height = 1280;
+    var width = 1280;
+
+    var skills = [
+      "aws",
+      "ruby",
+      "ruby on rails",
+      "rhel",
+      "c",
+      "sql",
+      "postgresql",
+      "javascipt",
+      "jenkins",
+      "docker",
+      "redis",
+      "mongodb",
+      "git",
+      "d3.js",
+      "css",
+      "html",
+      "jquery",
+      "angularjs",
+      "react"
+    ];
+
+    var body = d3.select("body");
+
+    var svg = body.append("svg")
+      .attr("height", height)
+      .attr("width", width);
+
+    var title = svg.append("g")
+      .classed("title", true);
+
+    title.append("text")
+      .text("Roman Krasavtsev")
+      .attr("x", width / 2)
+      .attr("y", 30);
+
+    title.append("text")
+      .text("Software Engineer, Full Stack")
+      .attr("x", width / 2)
+      .attr("y", 70);
+
+    var colorScale = d3.scaleOrdinal(d3.schemeCategory20);
+
+    svg.selectAll("cicle")
+      .data(skills)
+      .enter()
+      .append("cicle")
+      .attr("r", "10")
+      .attr("fill", function(d, i){
+        return colorScale(i);
+      });
+
+      var nodes = d3.range(skills.length).map(function() {
+        return {radius: Math.random() * 12 + 4};
+      });
+
+      var force = d3.forceSimulation(nodes);
+        // .gravity(0.05)
+        // .charge(function(d, i) { return i ? 0 : -2000; })
+        // .nodes()
+        // .size([w, h]);
+  </script>
+
+  <!-- http://mbostock.github.io/d3/talk/20111018/collision.html -->
 </body>
 </html>
