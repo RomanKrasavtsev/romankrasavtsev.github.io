@@ -29,27 +29,29 @@
         { label: "AWS", r: 22, fill: "rgb(248, 178, 12)", color: "rgb(0, 0, 0)" },
         { label: "Ruby", r: 23, fill: "rgb(163, 12, 1)", color: "rgb(255, 255, 255)" },
         { label: "Ruby on Rails", r: 53, fill: "rgb(255, 255, 255)", color: "rgb(204, 0, 0)" },
+        { label: "Docker", r: 30, fill: "rgb(18, 74, 106)", color: "rgb(255, 255, 255)" },
         { label: "RHEL", r: 25, fill: "rgb(0, 0, 0)", color: "rgb(204, 0, 0)" },
         { label: "C", r: 12, fill: "rgb(168, 185, 204)", color: "rgb(27, 117, 179)" },
-        { label: "SQL", r: 20, fill: "rgb(160, 81, 193)", color: "rgb(255, 255, 255)" },
-        { label: "PostgreSQL", r: 48, fill: "rgb(50, 102, 144)", color: "rgb(255, 255, 255)" },
-        { label: "JavaScript", r: 42, fill: "rgb(247, 223, 30)", color: "rgb(0, 0, 0)" },
-        { label: "Jenkins", r: 31, fill: "rgb(255, 255, 255)", color: "rgb(0, 0, 0)" },
-        { label: "Docker", r: 30, fill: "rgb(18, 74, 106)", color: "rgb(255, 255, 255)" },
-        { label: "Redis", r: 24, fill: "rgb(180, 37, 17)", color: "rgb(255, 255, 255)" },
-        { label: "MongoDB", r: 41, fill: "rgb(68, 154, 69)", color: "rgb(255, 255, 255)" },
-        { label: "Git", r: 15, fill: "rgb(240, 80, 51)", color: "rgb(0, 0, 0)" },
-        { label: "D3.js", r: 23, fill: "rgb(255, 255, 255)", color: "rgb(247, 156, 67)" },
-        { label: "CSS", r: 21, fill: "rgb(1, 113, 187)", color: "rgb(255, 255, 255)" },
-        { label: "HTML", r: 26, fill: "rgb(228, 77, 38)", color: "rgb(255, 255, 255)" },
-        { label: "jQuery", r: 28, fill: "rgb(16, 105, 173)", color: "rgb(0, 0, 0)" },
+        { label: "React", r: 25, fill: "rgb(34, 34, 34)", color: "rgb(97, 218, 251)" },
         { label: "AngularJS", r: 42, fill: "rgb(221, 49, 54)", color: "rgb(0, 0, 0)" },
-        { label: "React", r: 25, fill: "rgb(34, 34, 34)", color: "rgb(97, 218, 251)" }
+        { label: "Git", r: 15, fill: "rgb(240, 80, 51)", color: "rgb(0, 0, 0)" },
+        { label: "CSS", r: 21, fill: "rgb(1, 113, 187)", color: "rgb(255, 255, 255)" },
+        { label: "PostgreSQL", r: 48, fill: "rgb(50, 102, 144)", color: "rgb(255, 255, 255)" },
+        { label: "SQL", r: 20, fill: "rgb(160, 81, 193)", color: "rgb(255, 255, 255)" },
+        { label: "jQuery", r: 28, fill: "rgb(16, 105, 173)", color: "rgb(0, 0, 0)" },
+        { label: "Redis", r: 24, fill: "rgb(180, 37, 17)", color: "rgb(255, 255, 255)" },
+        { label: "Jenkins", r: 31, fill: "rgb(255, 255, 255)", color: "rgb(0, 0, 0)" },
+        { label: "HTML", r: 26, fill: "rgb(228, 77, 38)", color: "rgb(255, 255, 255)" },
+        { label: "D3.js", r: 23, fill: "rgb(255, 255, 255)", color: "rgb(247, 156, 67)" },
+        { label: "JavaScript", r: 42, fill: "rgb(247, 223, 30)", color: "rgb(0, 0, 0)" },
+        { label: "MongoDB", r: 41, fill: "rgb(68, 154, 69)", color: "rgb(255, 255, 255)" },
       ]
     };
 
     data.links = d3.range(0, data.nodes.lenght).map(function() {
-      return { source: ~~d3.randomUniform(range)(), target:~~d3.randomUniform(range)()}
+      return {
+        source: ~~d3.randomUniform(range)(),
+        target: ~~d3.randomUniform(range)()}
     });
 
     var height = 600;
@@ -126,6 +128,12 @@
       });
 
     var ticked = function() {
+      link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
       node.attr("transform", function(d) {
         return 'translate(' + [d.x, d.y] + ')';
       });
@@ -142,18 +150,18 @@
         if (!d3.event.active) simulation.alphaTarget(0.3).restart();
         d.fx = d.x;
         d.fy = d.y;
-    }
+    };
 
     function dragged(d) {
         d.fx = d3.event.x;
         d.fy = d3.event.y;
-    }
+    };
 
     function dragended(d) {
         if (!d3.event.active) simulation.alphaTarget(0);
         d.fx = null;
         d.fy = null;
-    }
+    };
   </script>
 </body>
 </html>
