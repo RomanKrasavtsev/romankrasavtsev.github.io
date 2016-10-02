@@ -7,13 +7,16 @@
   <style>
     body {
       background: #f2f3f2;
-      font-family: 'Helvetica Neue', Helvetica;
-      font-weight: 300;
-      text-anchor: middle;
       margin: 0;
     }
     .title {
       font-size: 30px;
+    }
+    .text, .title {
+      font-family: 'Helvetica Neue', Helvetica;
+      font-weight: 300;
+      text-anchor: middle;
+      cursor: default;
     }
   </style>
 </head>
@@ -107,7 +110,7 @@
       });
 
     node.append("text")
-      .style("text-anchor", "middle")
+      .classed("text", true)
       .text(function(d) {
         return d.label;
       })
