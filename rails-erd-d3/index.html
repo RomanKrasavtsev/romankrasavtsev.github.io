@@ -64,7 +64,7 @@
     .append('line')
     .attr('class', function(d, i) { return data.nodes[d.source].label + ' ' + data.nodes[d.target].label })
     .attr('stroke', function(d) { return colorScale(d.color) })
-    .attr("stroke-width", 2);
+    .attr('stroke-width', 2);
 
   var node = svg.selectAll('.node')
     .data(data.nodes)
