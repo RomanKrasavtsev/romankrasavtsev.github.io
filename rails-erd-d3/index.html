@@ -62,8 +62,8 @@
     .data(data.links)
     .enter()
     .append('line')
+    .style('thickness', 2)
     .attr('class', function(d, i) { return data.nodes[d.source].label + ' ' + data.nodes[d.target].label })
-    .attr('thickness', 2)
     .attr('stroke', function(d) { return colorScale(d.color) });
 
   var node = svg.selectAll('.node')
