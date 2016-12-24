@@ -1,0 +1,9 @@
+Do not hurry up to change your Mac notebook battery!
+
+You can use it up to 1000 battery charge cycles, but warning is displayed on 750. You still have 250 battery charge cycles! 
+ 
+URL: https://support.apple.com/en-us/HT201585
+
+Check your battery cycle count for Mac notebook:
+#!/bin/bash
+system_profiler SPPowerDataType | grep "Cycle Count\|Condition"
