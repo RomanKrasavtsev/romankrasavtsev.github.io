@@ -18,13 +18,21 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="" data-toggle="modal" data-target="#preferences" style="color: #ffffff;">
-            Preferences
+          <a href="#rotate" style="color: #ffffff;" onclick="rotate();">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+            Rotate
+          </a>
+        </li>
+        <li>
+          <a href="#filter" data-toggle="modal" data-target="#filter" style="color: #ffffff;">
+            <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+            Filter
           </a>
         </li>
         <li>
           <a href="https://github.com/romankrasavtsev" target="_blank" style="color: #ffffff;">
-            &copy; 2016 Roman Krasavtsev
+            <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
+            2016 Roman Krasavtsev
           </a>
         </li>
       </ul>
@@ -32,7 +40,7 @@
   </div>
 </nav>
 <div id='erd'></div><script>
-  var data = {"nodes":[{"label":"Comment","r":30},{"label":"Task","r":30},{"label":"Project","r":30},{"label":"Attachment","r":30}],"links":[{"source":1,"target":0,"color":2},{"source":2,"target":0,"color":2},{"source":3,"target":0,"color":2}]};
+  var data = {"nodes":[{"label":"User","r":30},{"label":"Project","r":30},{"label":"Attachment","r":30},{"label":"Task","r":30},{"label":"Comment","r":30}],"links":[{"source":0,"target":1,"color":2},{"source":1,"target":4,"color":2},{"source":2,"target":4,"color":2},{"source":3,"target":4,"color":2}]};
 
   var width = window.innerWidth
     || document.documentElement.clientWidth
@@ -47,6 +55,18 @@
     .attr('height', height)
     .attr('width', width)
     .style('background', 'white');
+
+  svg.append('defs')
+    .append('marker')
+      .attr('id', 'arrow')
+      .attr('viewBox', '0 -5 10 10')
+      .attr('refX', 32)
+      .attr('refY', 0)
+      .attr('markerWidth', 7)
+      .attr('markerHeight', 7)
+      .attr('orient', 'auto')
+    .append('svg:path')
+      .attr('d', 'M0,-5L10,0L0,5');
 
   var simulation = d3.forceSimulation()
     .force('link', d3.forceLink().id(function(d) { return d.index }))
@@ -64,7 +84,8 @@
     .append('line')
     .attr('class', function(d, i) { return data.nodes[d.source].label + ' ' + data.nodes[d.target].label })
     .attr('stroke', function(d) { return colorScale(d.color) })
-    .attr('stroke-width', 2);
+    .attr('stroke-width', 2)
+    .attr('marker-end', 'url(#arrow)');
 
   var node = svg.selectAll('.node')
     .data(data.nodes)
@@ -82,6 +103,8 @@
 
   node.append('circle')
     .classed('circle', true)
+    .attr('stroke', 'white')
+    .attr('stroke-width', 3)
     .attr('r', function(d){  return d.r })
     .attr('fill', function(d, i) { return colorScale(i) });
 
@@ -128,6 +151,350 @@
   }
 </script>
 
+  <div class="modal fade" id="User" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">
+            User
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Associations</div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>name</th>
+                  <th>type</th>
+                  <th>class_name</th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                  <tr>
+                    <th>1</th>
+                    <td>Projects</td>
+                    <td>has_many</td>
+                    <td>
+                      Project
+
+                    </td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">Table structure</div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>column_name</th>
+                  <th>type</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <th>1</th>
+                    <td>id</td>
+                    <td>integer</td>
+                  </tr>
+
+                  <tr>
+                    <th>2</th>
+                    <td>firstname</td>
+                    <td>string</td>
+                  </tr>
+
+                  <tr>
+                    <th>3</th>
+                    <td>familyname</td>
+                    <td>string</td>
+                  </tr>
+
+                  <tr>
+                    <th>4</th>
+                    <td>sex</td>
+                    <td>string</td>
+                  </tr>
+
+                  <tr>
+                    <th>5</th>
+                    <td>created_at</td>
+                    <td>datetime</td>
+                  </tr>
+
+                  <tr>
+                    <th>6</th>
+                    <td>updated_at</td>
+                    <td>datetime</td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Project" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">
+            Project
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Associations</div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>name</th>
+                  <th>type</th>
+                  <th>class_name</th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                  <tr>
+                    <th>1</th>
+                    <td>Comments</td>
+                    <td>has_many</td>
+                    <td>
+
+
+                    </td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">Table structure</div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>column_name</th>
+                  <th>type</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <th>1</th>
+                    <td>id</td>
+                    <td>integer</td>
+                  </tr>
+
+                  <tr>
+                    <th>2</th>
+                    <td>created_at</td>
+                    <td>datetime</td>
+                  </tr>
+
+                  <tr>
+                    <th>3</th>
+                    <td>updated_at</td>
+                    <td>datetime</td>
+                  </tr>
+
+                  <tr>
+                    <th>4</th>
+                    <td>user_id</td>
+                    <td>integer</td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Attachment" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">
+            Attachment
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Associations</div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>name</th>
+                  <th>type</th>
+                  <th>class_name</th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                  <tr>
+                    <th>1</th>
+                    <td>Comments</td>
+                    <td>has_many</td>
+                    <td>
+
+
+                    </td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">Table structure</div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>column_name</th>
+                  <th>type</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <th>1</th>
+                    <td>id</td>
+                    <td>integer</td>
+                  </tr>
+
+                  <tr>
+                    <th>2</th>
+                    <td>created_at</td>
+                    <td>datetime</td>
+                  </tr>
+
+                  <tr>
+                    <th>3</th>
+                    <td>updated_at</td>
+                    <td>datetime</td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Task" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">
+            Task
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Associations</div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>name</th>
+                  <th>type</th>
+                  <th>class_name</th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                  <tr>
+                    <th>1</th>
+                    <td>Comments</td>
+                    <td>has_many</td>
+                    <td>
+
+
+                    </td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">Table structure</div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>column_name</th>
+                  <th>type</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <th>1</th>
+                    <td>id</td>
+                    <td>integer</td>
+                  </tr>
+
+                  <tr>
+                    <th>2</th>
+                    <td>created_at</td>
+                    <td>datetime</td>
+                  </tr>
+
+                  <tr>
+                    <th>3</th>
+                    <td>updated_at</td>
+                    <td>datetime</td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal fade" id="Comment" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -145,8 +512,8 @@
                 <tr>
                   <th>#</th>
                   <th>name</th>
-                  <th>macro</th>
-                  <th>foreign_key</th>
+                  <th>type</th>
+                  <th>class_name</th>
                 </tr>
               </thead>
               <tbody>
@@ -156,7 +523,10 @@
                     <th>1</th>
                     <td>Commentable</td>
                     <td>belongs_to</td>
-                    <td>commentable_id</td>
+                    <td>
+
+
+                    </td>
                   </tr>
 
               </tbody>
@@ -217,245 +587,14 @@
     </div>
   </div>
 
-  <div class="modal fade" id="Task" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">
-            Task
-          </h4>
-        </div>
-        <div class="modal-body">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Associations</div>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>name</th>
-                  <th>macro</th>
-                  <th>foreign_key</th>
-                </tr>
-              </thead>
-              <tbody>
 
-
-                  <tr>
-                    <th>1</th>
-                    <td>Comments</td>
-                    <td>has_many</td>
-                    <td>commentable_id</td>
-                  </tr>
-
-              </tbody>
-            </table>
-          </div>
-
-          <div class="panel panel-primary">
-            <div class="panel-heading">Table structure</div>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>column_name</th>
-                  <th>type</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                  <tr>
-                    <th>1</th>
-                    <td>id</td>
-                    <td>integer</td>
-                  </tr>
-
-                  <tr>
-                    <th>2</th>
-                    <td>created_at</td>
-                    <td>datetime</td>
-                  </tr>
-
-                  <tr>
-                    <th>3</th>
-                    <td>updated_at</td>
-                    <td>datetime</td>
-                  </tr>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="Project" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">
-            Project
-          </h4>
-        </div>
-        <div class="modal-body">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Associations</div>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>name</th>
-                  <th>macro</th>
-                  <th>foreign_key</th>
-                </tr>
-              </thead>
-              <tbody>
-
-
-                  <tr>
-                    <th>1</th>
-                    <td>Comments</td>
-                    <td>has_many</td>
-                    <td>commentable_id</td>
-                  </tr>
-
-              </tbody>
-            </table>
-          </div>
-
-          <div class="panel panel-primary">
-            <div class="panel-heading">Table structure</div>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>column_name</th>
-                  <th>type</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                  <tr>
-                    <th>1</th>
-                    <td>id</td>
-                    <td>integer</td>
-                  </tr>
-
-                  <tr>
-                    <th>2</th>
-                    <td>created_at</td>
-                    <td>datetime</td>
-                  </tr>
-
-                  <tr>
-                    <th>3</th>
-                    <td>updated_at</td>
-                    <td>datetime</td>
-                  </tr>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="Attachment" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">
-            Attachment
-          </h4>
-        </div>
-        <div class="modal-body">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Associations</div>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>name</th>
-                  <th>macro</th>
-                  <th>foreign_key</th>
-                </tr>
-              </thead>
-              <tbody>
-
-
-                  <tr>
-                    <th>1</th>
-                    <td>Comments</td>
-                    <td>has_many</td>
-                    <td>commentable_id</td>
-                  </tr>
-
-              </tbody>
-            </table>
-          </div>
-
-          <div class="panel panel-primary">
-            <div class="panel-heading">Table structure</div>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>column_name</th>
-                  <th>type</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                  <tr>
-                    <th>1</th>
-                    <td>id</td>
-                    <td>integer</td>
-                  </tr>
-
-                  <tr>
-                    <th>2</th>
-                    <td>created_at</td>
-                    <td>datetime</td>
-                  </tr>
-
-                  <tr>
-                    <th>3</th>
-                    <td>updated_at</td>
-                    <td>datetime</td>
-                  </tr>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-<div class="modal fade" id="preferences" tabindex="-1" role="dialog">
+<div class="modal fade" id="filter" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">
-          Preferences
+          Filter
         </h4>
       </div>
       <div class="modal-body">
@@ -519,6 +658,18 @@
                   </td>
                 </tr>
 
+                <tr>
+                  <th>5</th>
+                  <td>User</td>
+                  <td>
+                    <div class="checkbox">
+                      <label>
+                        <input class="visible" id="User" type="checkbox" value="" checked>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+
             </tbody>
           </table>
         </div>
@@ -530,9 +681,8 @@
     </div>
   </div>
 </div>
-
 <script>
-  $(".visible").click(function(){
+  $(".visible").click(function() {
     var klass = $(this).attr("id");
 
     if ($(this).prop("checked")){
@@ -542,6 +692,16 @@
       $("." + klass).hide();
     }
   });
+
+  function rotate() {
+    if (svg.classed("rotated")) {
+      simulation.alphaTarget(0);
+      svg.classed("rotated", false);
+    }
+    else {
+      simulation.alphaTarget(0.4).restart();
+      svg.classed("rotated", true);
+    }
+  };
 </script>
 </body></html>
-
