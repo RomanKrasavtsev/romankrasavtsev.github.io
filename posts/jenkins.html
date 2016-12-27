@@ -86,3 +86,13 @@ bundle exec rake db:drop RAILS_ENV=test
 bundle exec rake db:create RAILS_ENV=test
 bundle exec rake db:schema:load RAILS_ENV=test
 bundle exec rspec spec
+
+## Post-build Actions
+- Publish documents
+  - Title: Coverage report
+  - Directory to archive: coverage
+  - Archive recursively
+  - Index file: index.html
+
+- Publish Rcov Report
+  - Rcov report directory: coverage/rcov
