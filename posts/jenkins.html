@@ -1,0 +1,88 @@
+# gem
+group :test do
+  gem "simplecov", require: false
+  gem "simplecov-json", require: false
+  gem "simplecov-rcov", require: false
+end
+
+# spec_helper.rb
+require "sunspot/rails/spec_helper"
+require "simplecov-json"
+require "simplecov-rcov"
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::JSONFormatter,
+  SimpleCov::Formatter::RcovFormatter
+]
+SimpleCov.start
+
+$PROJECT_NAME - project name in Jenkins
+$ID - Docker container ID
+
+# Login to Docker
+docker exec -it $ID bash
+
+# Install Ruby 2.3
+rvm install 2.3
+
+# Check
+rvm list known
+
+# Install MySQL client
+sudo apt-get install libmysqlclient-dev
+
+# Manage Jenkins
+
+## Configure System
+### Jenkins Location
+- URL: http://$URL:7070/
+- System Admin e-mail address: $EMAIL
+
+### GitHub
+- GitHub Servers
+  - API URL: https://api.github.com
+  - Credentials: Personal access token
+  - Manage hooks
+
+### Git plugin
+- Create new accounts base on author/committer's email
+
+## Plugins
+- DocLinks
+- RubyMetrics
+- embeddable-build-status
+- GitHub plugin
+- Git plugin
+- GIT server Plugin
+- GitHub API Plugin
+
+# Project
+# Configure
+## General
+Project name: $PROJECT_NAME
+
+- GitHub project
+  - Project url: https://github.com/$USERNAME/$PROJECT_NAME/
+
+## Source Code Management
+- Git
+- Repository URL: git@github.com:$USERNAME/$PROJECT_NAME.git
+
+## Build Triggers
+- Build when a change is pushed to GitHub
+
+## Build Environment
+- Delete workspace before build starts
+- Add timestamps to the Console Output
+
+## Build
+- Execute shell
+#!/bin/bash
+source ~/.bash_profile
+cd ~/workspace/$PROJECT_NAME/
+bundle install
+bundle exec rake db:drop RAILS_ENV=test
+bundle exec rake db:create RAILS_ENV=test
+bundle exec rake db:schema:load RAILS_ENV=test
+bundle exec rspec spec
