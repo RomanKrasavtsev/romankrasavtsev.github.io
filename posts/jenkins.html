@@ -98,3 +98,11 @@ bundle exec rspec spec
 
 - Publish Rcov Report
   - Rcov report directory: coverage/rcov
+
+# Download the latest version
+cd /usr/share/jenkins
+sudo mv jenkins.war jenkins_old.war
+sudo wget http://mirrors.jenkins.io/war/latest/jenkins.war
+
+# Safe restart
+URL/safeRestart
