@@ -58,6 +58,7 @@ sudo apt-get install libmysqlclient-dev
 - Git plugin
 - GIT server Plugin
 - GitHub API Plugin
+- GitHub Pull Request Builder Plugin
 
 # Project
 # Configure
@@ -73,6 +74,9 @@ Project name: $PROJECT_NAME
 
 ## Build Triggers
 - Build when a change is pushed to GitHub
+- GitHub Pull Request Builder
+  - Admin list: romankrasavtsev
+  - Use github hooks for build triggering
 
 ## Build Environment
 - Delete workspace before build starts
@@ -88,6 +92,7 @@ bundle exec rake db:drop RAILS_ENV=test
 bundle exec rake db:create RAILS_ENV=test
 bundle exec rake db:schema:load RAILS_ENV=test
 bundle exec rspec spec
+bundle exec rubocop
 
 ## Post-build Actions
 - Publish documents
@@ -100,6 +105,8 @@ If you have an error "java.lang.NoClassDefFoundError: hudson/maven/Maven Module"
 
 - Publish Rcov Report
   - Rcov report directory: coverage/rcov
+
+- Set build status on GitHub commit post-build action
 
 # Download the latest version
 cd /usr/share/jenkins
