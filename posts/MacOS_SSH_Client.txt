@@ -1,0 +1,5 @@
+If you have a problem with message "Write Failed: broken pipe", you can eliminate it by setting your config accordingly, as shown here:
+
+cat ~/.ssh/config
+Host *
+ServerAliveInterval 120
