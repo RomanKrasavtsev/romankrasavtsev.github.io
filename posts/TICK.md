@@ -50,7 +50,7 @@
 1462   pid_file = "/var/run/unicorn.pid"
 ```
 
-### Redis
+#### Redis
 ```
 1542 [[inputs.redis]]
 1552   servers = ["tcp://localhost:6379"]
