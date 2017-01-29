@@ -55,3 +55,8 @@
 1542 [[inputs.redis]]
 1552   servers = ["tcp://localhost:6379"]
 ```
+
+## Chronograf
+```
+  docker run -d -p 10000:10000 chronograf
+```
