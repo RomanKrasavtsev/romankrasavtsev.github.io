@@ -14,7 +14,7 @@
  
 #### Telegraf
 ```
- 28 interval = "1m"
+ 28 interval = "10m"
  73 hostname = ""
 ```
 
