@@ -22,8 +22,8 @@
 #### Telegraf
 ```
  28 interval = "10m"
- 70   logfile = "/var/log/plugins.txt"
- 73 hostname = ""
+ 70   logfile = "/var/log/telegraf/plugins.txt"
+ 73   hostname = ""
 ```
 
 #### InfluxDB
