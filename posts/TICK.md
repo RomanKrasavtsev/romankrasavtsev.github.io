@@ -24,6 +24,12 @@
  90   database = "telegraf"
 ```
 
+#### CPU
+```
+488   percpu = false
+```
+
+
 #### Disk
 ```
  496 [[inputs.disk]]
