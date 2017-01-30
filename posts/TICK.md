@@ -22,6 +22,7 @@
 #### Telegraf
 ```
  28 interval = "10m"
+ 70   logfile = "/var/log/plugins.txt"
  73 hostname = ""
 ```
 
