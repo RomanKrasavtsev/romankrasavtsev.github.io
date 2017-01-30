@@ -62,6 +62,7 @@
 
 #### Unicorn
 ```
+1459 [[inputs.procstat]]
 1462   pid_file = "/var/www/shared/pids/unicorn.pid"
 ```
 
