@@ -6,7 +6,7 @@
 ## Telegraf
  - install
  - edit config
- ```
+```
   sudo vim /etc/telegraf/telegraf.conf
 ```
  - restart service 
