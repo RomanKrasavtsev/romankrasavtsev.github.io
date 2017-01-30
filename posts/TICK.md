@@ -61,7 +61,7 @@
 
 #### Unicorn
 ```
-1462   pid_file = "/var/run/unicorn.pid"
+1462   pid_file = "/var/www/shared/pids/unicorn.pid"
 ```
 
 #### Redis
