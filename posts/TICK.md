@@ -6,7 +6,10 @@
 ## Telegraf
  - install
  - edit config
- - restart service [sudo service telegraf restart]
+ - restart service 
+ ```
+   sudo service telegraf restart
+ ```
  - check [telegraf -config /etc/telegraf/telegraf.conf -test]
 ### Config
 ```
