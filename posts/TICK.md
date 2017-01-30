@@ -47,6 +47,7 @@
 ```
  1191 [[inputs.mysql]]
  1200   servers = ["tcp(127.0.0.1:3306)/"]
+ 1210   gather_table_schema                       = true
  1213   gather_process_list                       = true
  1219   gather_slave_status                       = true
  # 1225   gather_table_io_waits                     = false
