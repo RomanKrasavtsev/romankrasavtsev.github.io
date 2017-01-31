@@ -46,12 +46,21 @@
 
 #### MySQL
 ```
+ 841 [[inputs.exec]]
+ 843   commands = [
+ 844     "/home/user/telegraf_mysql.sh"
+ 845   ]
+ 855   name_override = "mysq_size"
+ 861   data_format = "value"
+ 862   data_type = "integer"
+ 
  1191 [[inputs.mysql]]
  1200   servers = ["tcp(127.0.0.1:3306)/"]
  1210   gather_table_schema                       = true
  1213   gather_process_list                       = true
  1219   gather_slave_status                       = true
  # 1225   gather_table_io_waits                     = false
+ 
 ```
 
 #### NGNIX
