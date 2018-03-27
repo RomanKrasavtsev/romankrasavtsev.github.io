@@ -1,13 +1,18 @@
 docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins
 
 # gem
+
+Gemfile
+```
 group :test do
   gem "simplecov", require: false
   gem "simplecov-json", require: false
   gem "simplecov-rcov", require: false
 end
+```
 
-# spec_helper.rb
+spec_helper.rb
+```
 require "sunspot/rails/spec_helper"
 require "simplecov-json"
 require "simplecov-rcov"
@@ -18,6 +23,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::RcovFormatter
 ]
 SimpleCov.start
+```
 
 $PROJECT_NAME - project name in Jenkins
 $ID - Docker container ID
