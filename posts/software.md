@@ -1,0 +1,6 @@
+- iTerm2 (https://www.iterm2.com/)
+- Spotify (https://www.spotify.com/de/download/mac/)
+- Telegram (https://macos.telegram.org/)
+- Slack (https://slack.com/downloads/osx)
+- Sublime Text (https://www.sublimetext.com/)
+- Google Chrome (https://www.google.ru/chrome/index.html)
