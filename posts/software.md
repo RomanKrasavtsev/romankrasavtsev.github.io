@@ -5,3 +5,4 @@
 - Slack (https://slack.com/downloads/osx)
 - Sublime Text (https://www.sublimetext.com/)
 - Google Chrome (https://www.google.ru/chrome/index.html)
+- Aerial (https://github.com/JohnCoates/Aerial)
