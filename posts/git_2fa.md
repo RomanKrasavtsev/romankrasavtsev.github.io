@@ -1,1 +1,1 @@
-If you enable 2FA on GitHub, you should create a [Personal access token](https://github.com/settings/tokens) and use it as a password for you git.
+If you enable 2FA on GitHub, you should create a [Personal access token](https://github.com/settings/tokens) and use it as a password, username should be equal to the first part of your email address before @.
