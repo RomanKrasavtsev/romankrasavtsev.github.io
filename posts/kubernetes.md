@@ -20,7 +20,7 @@ kubectl logs -n $NAMESPACE $POD
 
 ## get
 ```
-kubectl get secret comonea-product-adapter \
+kubectl get secret $SECRET \
    -n $NAMESPACE \
    -o jsonpath --template '{.data.$KEY}' | base64 -D
 ```
