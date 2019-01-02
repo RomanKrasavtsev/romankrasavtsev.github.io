@@ -18,3 +18,9 @@ kubectl get deployments -n $NAMESPACE
 ```
 kubectl scale -n $NAMESPACE --replicas=$AMOUNT deployment/$DEPLOYMENT
 ```
+
+# Logs
+
+```
+kubectl logs -n $NAMESPACE $POD
+```
