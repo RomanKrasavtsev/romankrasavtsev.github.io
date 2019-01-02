@@ -1,4 +1,6 @@
 # Secrets
+
+## get
 ```
 kubectl get secret comonea-product-adapter \
    -n $NAMESPACE \
