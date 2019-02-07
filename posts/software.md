@@ -6,3 +6,10 @@
 - Sublime Text (https://www.sublimetext.com/)
 - Google Chrome (https://www.google.ru/chrome/index.html)
 - Aerial (https://github.com/JohnCoates/Aerial)
+
+# PostgreSQL
+  - PSequel (http://www.psequel.com/)
+  - TablePlus(https://tableplus.io/)
+ 
+# MySQL
+  - SequelPro (https://www.sequelpro.com/)
