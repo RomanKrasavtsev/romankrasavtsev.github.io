@@ -1,5 +1,8 @@
 - iTerm2 (https://www.iterm2.com/)
   - https://gist.github.com/kevin-smets/8568070
+- brew (https://brew.sh/)
+- telnet
+  `brew install telnet`
 - Spotify (https://www.spotify.com/de/download/mac/)
 - Telegram (https://macos.telegram.org/)
 - Slack (https://slack.com/downloads/osx)
