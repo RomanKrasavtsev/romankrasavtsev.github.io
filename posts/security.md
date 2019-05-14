@@ -7,6 +7,10 @@ curl -X GET registry.docker-registry.svc.cluster.local:5000/v2/repl/datascience/
 curl -X GET registry.docker-registry.svc.cluster.local:5000/v2/repl/datascience/blobs/sha256:014fa7f955d14ec882ac5643f009e2a1dd3b84cdf8558aa5123cd5989c5a0bcb > datascience_blob
 ```
 
+# netstat
+```shell
+netstat -ntlp
+```
 
 # nmap
 ```bash
