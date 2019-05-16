@@ -10,6 +10,14 @@ curl -X GET registry.docker-registry.svc.cluster.local:5000/v2/repl/datascience/
 # netstat
 ```shell
 netstat -ntlp
+
+nmap 192.168.0.0/16 \
+-p T:80,443 \
+--open \
+-oG - \
+| grep "Port" \
+| sed -Ee "s/(Host:|Ports:|\(\)|\/|open|https|http|tcp)//g" \
+| tee scan_ip_port.txt
 ```
 
 # nmap
