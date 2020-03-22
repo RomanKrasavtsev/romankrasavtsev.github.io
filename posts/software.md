@@ -31,6 +31,10 @@ vim ~/.zshrc
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 ```
+- AWS CLI
+```
+brew install awscli
+```
 
 # PostgreSQL
   - PSequel (http://www.psequel.com/)
