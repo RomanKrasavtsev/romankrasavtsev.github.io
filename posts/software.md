@@ -2,11 +2,13 @@
   - https://gist.github.com/kevin-smets/8568070
 - brew (https://brew.sh/)
 - terraform
-  `brew install tfenv`
-  `tfenv list-remote`
-  `tfenv install 0.11.14`
-  `tfenv install 0.12.0`
-  `tfenv use 0.12.0`
+  ```
+  brew install tfenv
+  tfenv list-remote
+  tfenv install 0.11.14
+  tfenv install 0.12.0
+  tfenv use 0.12.0
+  ```
 - telnet
   `brew install telnet`
 - Spotify (https://www.spotify.com/de/download/mac/)
