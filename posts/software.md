@@ -23,6 +23,14 @@
   ```
 - Google Chrome (https://www.google.ru/chrome/index.html)
 - Aerial (https://github.com/JohnCoates/Aerial)
+- Go
+```
+brew install go
+
+vim ~/.zshrc
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+```
 
 # PostgreSQL
   - PSequel (http://www.psequel.com/)
