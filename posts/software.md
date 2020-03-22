@@ -39,6 +39,10 @@ brew install awscli
 ```
 brew install weaveworks/tap/eksctl
 ```
+- kubectl
+```
+brew install kubectl
+```
 
 # PostgreSQL
   - PSequel (http://www.psequel.com/)
