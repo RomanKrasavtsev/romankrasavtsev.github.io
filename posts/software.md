@@ -13,6 +13,7 @@
 - Telegram (https://macos.telegram.org/)
 - Slack (https://slack.com/downloads/osx)
 - Sublime Text (https://www.sublimetext.com/)
+- Visual Studio Code (https://code.visualstudio.com/)
 - Google Chrome (https://www.google.ru/chrome/index.html)
 - Aerial (https://github.com/JohnCoates/Aerial)
 
