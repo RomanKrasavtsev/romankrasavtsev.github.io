@@ -35,6 +35,10 @@ export GOBIN=$GOPATH/bin
 ```
 brew install awscli
 ```
+- eksctl
+```
+brew install weaveworks/tap/eksctl
+```
 
 # PostgreSQL
   - PSequel (http://www.psequel.com/)
