@@ -1,6 +1,7 @@
 - iTerm2 (https://www.iterm2.com/)
   - https://gist.github.com/kevin-smets/8568070
 - brew (https://brew.sh/)
+- Rectangle (https://github.com/rxhanson/Rectangle)
 - terraform
   ```
   brew install tfenv
