@@ -45,6 +45,10 @@ brew install weaveworks/tap/eksctl
 ```
 brew install kubectl
 ```
+- kube-ps1 (https://github.com/jonmosco/kube-ps1)
+```
+brew install kube-ps1
+```
 - Docker Desktop (https://www.docker.com/products/docker-desktop)
 
 # PostgreSQL
