@@ -21,6 +21,7 @@
   vscode-icons
   terraform
   go
+  Add New Line to Files
   ```
 - Google Chrome (https://www.google.ru/chrome/index.html)
 - Aerial (https://github.com/JohnCoates/Aerial)
