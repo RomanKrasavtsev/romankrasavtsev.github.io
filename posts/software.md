@@ -12,6 +12,7 @@
   ```
 - telnet
   `brew install telnet`
+ - wget `brew install wget`
 - Spotify (https://www.spotify.com/de/download/mac/)
 - Telegram (https://macos.telegram.org/)
 - Slack (https://slack.com/downloads/osx)
