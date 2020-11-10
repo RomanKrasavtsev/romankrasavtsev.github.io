@@ -1,0 +1,60 @@
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.2.0/dist/tailwind.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.9.8/dist/alpine.js" defer></script>
+</head>
+
+<body class="text-gray-800 bg-gray-100">
+  <div class="container mx-auto px-6 py-6 max-w-xl" x-data="{
+      faqs: [
+        {
+          question: 'Question 1',
+          answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores iure quas laudantium dicta impedit, est id delectus molestiae deleniti enim nobis rem et nihil.',
+          isOpen: false,
+        },
+        {
+          question: 'Question 2',
+          answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi cumque, nulla harum aspernatur veniam ullam provident neque temporibus autem itaque odit.',
+          isOpen: false,
+        },
+        {
+          question: 'Question 3',
+          answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi cumque, nulla harum aspernatur veniam ullam provident neque temporibus autem itaque odit.',
+          isOpen: false,
+        },
+        {
+          question: 'Question 4',
+          answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi cumque, nulla harum aspernatur veniam ullam provident neque temporibus autem itaque odit.',
+          isOpen: false,
+        },
+        {
+          question: 'Question 5',
+          answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi cumque, nulla harum aspernatur veniam ullam provident neque temporibus autem itaque odit.',
+          isOpen: false,
+        },
+        {
+          question: 'Question 6',
+          answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi cumque, nulla harum aspernatur veniam ullam provident neque temporibus autem itaque odit.',
+          isOpen: false,
+        },
+      ]
+    }">
+    <h2 class="text-4xl sm:text-4xl md:text-2xl font-extrabold text-center pb-8 tracking-wide">Frequently asked questions</h2>
+    
+    <div  class="leading-loose text-xl sm:text-xl md:text-lg">
+      <template x-for="faq in faqs" :key="faq.question">
+        <div class="border-b border-gray-400">
+          <button class="w-full font-semibold py-5 flex justify-between items-center focus:outline-none" @click="faq.isOpen = !faq.isOpen">
+            <div x-text="faq.question"></div>
+            <svg x-show="!faq.isOpen" class="w-6 h-6" fill="none" stroke="#cbd5e0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <svg x-show="faq.isOpen" class="w-6 h-6" fill="none" stroke="#cbd5e0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+          </button>
+          <div
+            class="text-gray-600 text-lg sm:text-lg md:text-sm p-2 mb-5 bg-gray-200"                        
+            x-text="faq.answer"
+            x-show="faq.isOpen">
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</body>
