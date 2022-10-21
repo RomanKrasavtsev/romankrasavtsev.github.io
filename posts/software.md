@@ -16,7 +16,6 @@
 - Spotify (https://www.spotify.com/de/download/mac/)
 - Telegram (https://macos.telegram.org/)
 - Slack (https://slack.com/downloads/osx)
-- Sublime Text (https://www.sublimetext.com/)
 - Visual Studio Code (https://code.visualstudio.com/)
   ```
   vscode-icons
@@ -24,6 +23,7 @@
   go
   Add New Line to Files
   ```
+- gcloud `brew install --cask google-cloud-sdk`
 - Google Chrome (https://www.google.ru/chrome/index.html)
 - Aerial (https://github.com/JohnCoates/Aerial)
 - Go
@@ -50,6 +50,7 @@ brew install kubectl
 ```
 brew install kube-ps1
 ```
+- k9s https://k9scli.io/
 - Docker Desktop (https://www.docker.com/products/docker-desktop)
 
 # PostgreSQL
