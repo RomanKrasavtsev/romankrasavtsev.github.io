@@ -51,6 +51,7 @@ brew install kubectl
 brew install kube-ps1
 ```
 - k9s https://k9scli.io/
+- krew https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 - Docker Desktop (https://www.docker.com/products/docker-desktop)
 
 # PostgreSQL
